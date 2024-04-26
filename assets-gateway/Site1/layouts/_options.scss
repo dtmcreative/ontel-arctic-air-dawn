@@ -1,0 +1,107 @@
+$select: ".options" !default;
+
+@use "./../config/colors";
+@use "./../config/queries";
+@use "./../config/fonts";
+
+@mixin base {
+    #{$select} {
+
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        font-size: 1em;
+        font-weight: 500;
+        color: #444444;
+        
+        &__img {
+
+        }
+
+        &__item {
+            flex: 0 1 16em;
+            background: #eeeeee;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            border: 1px solid black;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            transition: border-color 0.5s, box-shadow 0.5s;
+            // &:hover,
+            // &:focus {
+            //     border: 3px solid colors.get(primary);
+            //     box-shadow: 0 0 0 2px colors.get(primary);
+            // }
+            &--selected {
+                border-color: colors.get(primary);
+                box-shadow: inset 0 0 0 0.25em colors.get(primary);
+            }
+        }
+
+        &__title {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: colors.get(primary);
+        }
+
+        &__price {
+            b {
+                font-weight: 700;
+                font-size: 1.56em;
+            }
+        }
+
+        &__shipping {
+
+        }
+
+        &__button {
+            font-weight: 700;
+            background: colors.get(callout);
+            font-size: 1.25em;
+            line-height: 1;
+            border-radius: 0.25em;
+            text-align: center;
+            padding: 0.6em 1em;
+            margin: 0.5em auto;
+            border: 2px solid colors.get(callout-dark);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.2s ease-in-out;
+            &:hover,
+            &:focus {
+                background: colors.get(callout-dark);
+            }
+        }
+
+        &__button.confirm-button {
+            background: #444;
+            border-color: #444;
+            &:hover,
+            &:focus {
+                background: black;
+            }
+        }
+
+        @media all and (max-width: queries.get(document-mobile-portrait)) {
+            font-size: 2.7vw;
+            &__item {
+                margin: 0 0 1em;
+            }
+            &__img {
+                max-height: 10em;
+                img {
+                    height: 100%;
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+    
+        @content;
+    }
+}

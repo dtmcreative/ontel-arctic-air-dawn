@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main_offer_yUk6yV": {
+      "type": "main-offer",
+      "settings": {
+      }
+    },
+    "offer_selection_PBfBVx": {
+      "type": "offer-selection",
+      "settings": {
+        "collection": ""
+      }
+    }
+  },
+  "order": [
+    "main_offer_yUk6yV",
+    "offer_selection_PBfBVx"
+  ]
+}

@@ -1,0 +1,77 @@
+@use "sass:math";
+
+$base: 1 !default;
+
+// config
+@use "./../config/fonts";
+@use "./../config/colors";
+@use "./../config/queries";
+
+// layouts
+@use "Shared/scss/templates/base/layouts/document";
+
+// abstracts
+@use "Shared/scss/templates/base/abstracts/background";
+
+@mixin base {
+    @include document.base;
+
+    h1 {
+        font-size: fonts.rem(40);
+    }
+
+    h2,
+    legend {
+        font-size: fonts.rem(40);
+        letter-spacing: unset;
+        text-transform: unset;
+    }
+
+    h3 {
+        font-size: fonts.rem(25);
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    input {
+        line-height: inherit;
+    }
+
+    fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    sup {
+        bottom: 0.75em;
+    }
+
+    address {
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+@mixin root {
+    scroll-behavior: smooth;
+
+    font-size: #{$base}rem;
+
+    @media all and (max-width: queries.get(document-mobile-portrait)) {
+        font-size: clamp(#{math.div($base, 2)}rem, 3.5vw, #{$base}rem);
+    }
+}
+
+@mixin body {
+    font: fonts.rem(16) fonts.get(primary);
+    line-height: 1.45;
+    color: colors.get(base-dark);
+
+    @include background.color-map(
+        $background-color: colors.get(base-light),
+        $text-color: colors.get(base-dark)
+    );
+}

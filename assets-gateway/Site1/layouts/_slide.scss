@@ -1,0 +1,121 @@
+$select: ".slide" !default;
+
+// layouts
+@use "Shared/scss/templates/base/layouts/slide" with (
+    $select: $select
+);
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+@mixin base {
+    @include slide.base {
+        @media all and (min-width: slide.$desktop) {
+            $length: 50em;
+            $offset: 8em;
+
+            &__into {
+                max-width: #{$length};
+                width: calc(100% - #{$offset});
+                margin: auto;
+            }
+
+            &__nav {
+                max-width: calc(#{$length} + #{$offset});
+                width: 100%;
+                color: colors.get(accent);
+            }
+        }
+
+        &__prev > svg {
+            transform: rotate(0.25turn);
+        }
+
+        &__next > svg {
+            transform: rotate(0.25turn);
+        }
+    }
+
+    #{$select} {
+        @media all and (max-width: queries.get(document-mobile-portrait)) {
+            &__nav {
+                justify-content: center;
+                gap: 1rem;
+                margin: 0.5em 0;
+                button {
+                    padding: 1em;
+                }
+            }
+        }
+    }
+
+    #{$select} {
+        @content;
+    }
+}
+
+@mixin fade {
+    @include slide.fade;
+
+    #{$select} {
+        &--fade {
+            #{$select} {
+                &__into {
+                    max-width: none;
+                    width: 100%;
+                }
+                @media all and (min-width: queries.get(document-mobile-portrait)) {
+                    &__nav {
+                        display: none;
+                    }
+                }
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin responsive {
+    #{$select} {
+        &--responsive {
+            #{$select} {
+                &__into {
+                    max-width: 920px;
+                    width: 100%;   
+                }
+                @media all and (min-width: 1000px) {
+                    &__nav {
+                        // width: 106%;
+                        max-width: none;
+                        // left: -3%;
+                    }
+                }
+                @media all and (max-width: 1000px) {
+                    &__nav {
+                        justify-content: center;
+                        margin: 0.5em 0;
+                        gap: 1rem;
+                    }
+                    &__prev,
+                    &__next {
+                        padding: 1em;
+                    }
+                }
+                &__item {
+                    @media all and (min-width: 750px) {
+                        max-width: calc(100% / 2);
+                    }
+
+                    @media all and (min-width: 1000px) {
+                        max-width: calc(100% / 3);
+                    }
+                }
+            }
+
+            @content;
+        }
+    }
+}

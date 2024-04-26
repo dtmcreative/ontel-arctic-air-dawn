@@ -1,0 +1,51 @@
+$select: ".dtm-button" !default;
+
+// config
+@use "../config/colors";
+@use "../config/fonts";
+
+// components
+@use "Shared/scss/templates/base/abstracts/button";
+
+@mixin base {
+	#{$select} {
+		@include button.container;
+		@include button.structure {
+			@include button.capsule; // make button pill shape
+			@include button.flat; // give button highlight/shadow
+			overflow: hidden;
+
+			padding: 0.75em 1.5em;
+			border-radius: 0.3em;
+
+			text-decoration: none;
+
+			font: 900 fonts.em(22) / 1 fonts.get(primary);
+
+			&::before {
+				background: colors.get(callout);
+			}
+
+			&::after {
+				background: colors.get(callout-dark);
+			}
+		}
+
+		@content;
+	}
+}
+
+@mixin circular {
+	#{$select} {
+		&--circular {
+			@include button.capsule-circular;
+
+			font-size: fonts.em(20);
+
+			#{$select} {
+			}
+
+			@content;
+		}
+	}
+}

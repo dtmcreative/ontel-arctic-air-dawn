@@ -1,0 +1,50 @@
+$select: ".offer" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+
+// components
+@use "Shared/scss/templates/base/components/offer" with (
+    $select: $select
+);
+
+// abstracts
+@use "./../abstracts/text";
+
+@mixin base {
+    @include offer.base;
+
+    #{$select} {
+        color: #3c434e;
+
+        font-size: var(--offer-font-size, 3.7em);
+        font-family: fonts.get(secondary);
+
+        &__standfirst {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: -0.25em;
+        }
+
+        &__currency,
+        &__amt,
+        &__cent {
+            font-weight: 900;
+        }
+
+        &__follow {
+        }
+
+        &__disclaimer {
+            text-align: center;
+            font-size: 0.285em;
+            font-size: clamp(12px, 0.285em, 20px);
+            margin: 0.25em 0 0 0;
+            color: colors.get(base);
+        }
+
+        @content;
+    }
+}

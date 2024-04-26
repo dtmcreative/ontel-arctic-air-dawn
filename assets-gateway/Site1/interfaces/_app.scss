@@ -1,0 +1,75 @@
+$base: 1;
+
+// utils
+@use "Shared/scss/templates/base/utils/unit-conversion" with (
+    $base: $base
+);
+@use "Shared/scss/templates/base/utils/scope";
+@use "Shared/scss/templates/base/utils/sr";
+@use "./../utils/view";
+@use "./../utils/section";
+@use "./../utils/hide";
+@use "./../utils/color";
+@use "./../utils/wrapper";
+
+// components
+@use "Shared/scss/templates/base/components/link";
+@use "Shared/scss/templates/base/components/skip-link";
+
+// layouts
+@use "./../layouts/document" with (
+    $base: $base
+);
+@use "./../layouts/header";
+@use "./../layouts/nav";
+@use "./../layouts/footer";
+@use "./../layouts/content";
+
+// setup config
+// if true, make sure to edit _view anchor points based off nav size
+$hasNav: false;
+
+@mixin critical {
+    // utils
+    @include view.base;
+    @include section.base;
+    @include sr.base;
+
+    @include hide.base;
+    @include color.base;
+
+    @include wrapper.base;
+
+    // components
+    @include link.base;
+    @include skip-link.base;
+
+    // layouts
+    @include document.base;
+
+    @include scope.get-root {
+        @include document.root;
+    }
+
+    @include scope.for-template {
+        @include document.body;
+    }
+
+    @include header.base;
+    @if ($hasNav) {
+        @include nav.base;
+        // make the app full size
+        @include header.fullnav;
+        @include nav.fullnav;
+    }
+    @include footer.base;
+
+    @include content.base;
+    @include content.sub-page;
+
+    @content;
+}
+
+@mixin defer {
+    @content;
+}

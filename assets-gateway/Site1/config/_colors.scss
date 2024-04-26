@@ -1,0 +1,18 @@
+@use "sass:map";
+
+$list: (
+    base: #000000,
+    base-light: white,
+    base-dark: black,
+    primary: #0761d8,
+    primary-light: #61d3ff,
+    primary-dark: #2a4d64,
+    alt: #99eb8b,
+    callout: #dc3937,
+    callout-dark: #a41716,
+    placeholder: #444
+);
+
+@function get($name) {
+    @return map.get($list, $name);
+}

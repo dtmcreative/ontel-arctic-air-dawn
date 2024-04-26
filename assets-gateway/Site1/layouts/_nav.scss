@@ -1,0 +1,92 @@
+$select: ".nav" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+// config variables
+$desktopLogo: true;
+$navPaneLogo: true;
+
+// layouts
+@use "Shared/css/template/base/layouts/nav" with (
+    $colors: (
+        text: white,
+        background: colors.get(primary-dark),
+        button-close: colors.get(base)
+    ),
+    $mq: (
+        container-min: queries.get(navbar),
+        container-max: queries.get(navbar)
+    )
+);
+
+@mixin base {
+    @include nav.new {
+        font-weight: 600;
+        font-family: fonts.get(base);
+        font-size: fonts.em(18);
+        text-transform: uppercase;
+
+        &__in {
+            padding: 0;
+        }
+    }
+
+    @media all and (min-width: queries.get(navbar)) {
+        #{$select} {
+            &__pane &__logo {
+                display: none;
+            }
+        }
+    }
+
+    @include nav.bar {
+        &__pane,
+        &__pane::before,
+        &__pane::after {
+            background: none;
+        }
+
+        &__list {
+            justify-content: space-around;
+
+            @supports (justify-content: space-evenly) {
+                justify-content: space-evenly;
+            }
+        }
+
+        &__link {
+            padding: 0.75em;
+        }
+    }
+
+    @include nav.drawer {
+        min-width: 5em;
+        font-size: 2em;
+        &__logo {
+            max-width: 8em;
+            padding: 0.5rem;
+        }
+    }
+
+    #{$select} {
+        @content;
+    }
+}
+
+@mixin fullnav {
+    #{$select} {
+            
+        @media all and (min-width: queries.get(navbar)) {    
+            #{$select} {
+                &__logo {
+                    display: none;
+                }
+            }
+        }
+
+        @content;
+    }
+}

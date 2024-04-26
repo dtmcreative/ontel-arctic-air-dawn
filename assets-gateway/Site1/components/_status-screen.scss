@@ -1,0 +1,52 @@
+$select: ".status-screen" !default;
+
+// components
+@use "Shared/scss/templates/base/components/status-screen";
+
+@mixin initialize {
+    @include status-screen.initialize;
+
+    #{$select} {
+        @content;
+    }
+}
+
+@mixin checkout-form {
+    #{$select} {
+        &--checkout-form {
+            --status-screen-background-color: white;
+            --status-screen-font-color: black;
+
+            --margin-offset: 1em;
+            --status-screen-status-size: 3em;
+
+            position: absolute;
+
+            #{$select} {
+                &__screen {
+                    outline: 1px solid var(--status-screen-background-color);
+                }
+
+                &__status,
+                &__output {
+                    position: sticky;
+                }
+
+                &__status {
+                    margin-top: var(--margin-offset);
+                    top: var(--margin-offset);
+                }
+
+                &__output {
+                    margin-bottom: auto;
+                    top: calc(
+                        var(--margin-offset) * 2 +
+                            var(--status-screen-status-size)
+                    );
+                }
+            }
+
+            @content;
+        }
+    }
+}

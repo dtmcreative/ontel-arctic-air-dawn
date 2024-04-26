@@ -1,0 +1,94 @@
+$select: ".header" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+// abstracts
+@use "Shared/scss/templates/base/abstracts/group";
+@use "Shared/scss/templates/base/abstracts/background";
+
+@mixin base {
+    #{$select} {
+        background: linear-gradient(to bottom, #3799ff, #08209a);
+
+        font-size: 1em;
+
+        &__in {
+            padding: 1rem;
+        }
+
+        &__group {
+            @include group.contain;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+        }
+
+        &__logo {
+            max-width: queries.em(283);
+            width: 100%;
+
+            &--no-aa {
+                max-width: queries.em(229);
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+
+        &__title {
+            flex: 0 1 auto;
+            &--backend {
+                flex-grow: 1;
+            }
+        }
+
+        &__action {
+            flex-basis: auto;
+        }
+
+        &__nav {
+            display: none;
+        }
+
+        @media all and (max-width: queries.set(900)) {
+            font-size: 1.6vw;
+
+            &__action {
+                display: none;
+            }
+        }
+
+        @content;
+    }
+}
+
+@mixin fullnav {
+    #{$select} {
+
+        #{$select} {
+            &__in {
+                padding: 0;
+            }
+            &__group {
+                flex-wrap: wrap;
+            }
+            &__nav {
+                display: block;
+            }
+        }
+
+        @media all and (min-width: queries.get(navbar)) {    
+            #{$select} {
+                &__nav {
+                    flex: 0 1 100%;
+                }
+            }
+        }
+
+        @content;
+    }
+}

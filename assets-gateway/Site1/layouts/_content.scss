@@ -1,0 +1,301 @@
+$select: ".content" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+// abstracts
+@use "Shared/scss/templates/base/abstracts/group";
+@use "Shared/scss/templates/base/abstracts/space";
+@use "Shared/scss/templates/base/abstracts/background";
+@use "Shared/scss/templates/base/abstracts/list";
+
+@mixin base {
+    #{$select} {
+        text-align: center;
+
+        overflow: hidden;
+        @include background.image-container;
+
+        &__bkg {
+            @include background.image-background;
+        }
+
+        &__group {
+            @include group.contain-flex;
+            justify-content: center;
+        }
+
+        &__title {
+            font-size: clamp(fonts.em(30), 8vw, fonts.em(52));
+            font-family: fonts.get(secondary);
+            line-height: 1;
+            color: colors.get(accent);
+        }
+
+        &__text {
+            @include space.between-flow-elements;
+        }
+
+        p {
+            font-size: inherit;
+        }
+
+        @content;
+    }
+}
+
+@mixin sub-page {
+    #{$select} {
+        &--sub-page {
+            text-align: left;
+
+            ul,
+            ol {
+                margin-left: 1.25em;
+                li {
+                    margin: 0 0 0.5em;
+                }
+            }
+
+            #{$select} {
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin picture-text {
+    #{$select} {
+        &--picture-text {
+
+            text-align: left;
+            padding-bottom: 1em;
+
+            #{$select} {
+                &__block {
+                    margin-bottom: 0;
+                }
+
+                &__group {
+                    --group-gap: 1rem;
+                }
+
+                &__picture {
+                    flex-basis: 40em;
+                }
+
+                &__text {
+                    flex-basis: 24em;
+                }
+
+                @media all and (max-width: queries.set(960)) {
+                    &__text {
+                        flex-basis: 100%;
+                        max-width: queries.em(473);
+                    }
+                }
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin in-use {
+    #{$select} {
+        &--in-use {
+
+            background: #99eb8b;
+            color: #2a4d64;
+            padding-block: 2em;
+
+            figure {
+                margin: 1.5em auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                font: fonts.em(20)/1 fonts.get(base);
+                figcaption {
+                    margin-top: 0.75em;
+                }
+            }
+
+            #{$select} {
+                &__title {
+                    margin: 0;
+                    img {
+                        margin: 1em auto 0;
+                    }
+                }
+
+                &__carousel {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin negative {
+    #{$select} {
+        &--negative {
+
+            @include background.color-map(
+                colors.get(alt),
+                colors.get(primary-dark)
+            );
+
+            figure {
+                flex: 0 1 26em;
+                margin-bottom: 1em;
+            }
+
+            figcaption {
+                @include fonts.base-rem(40);
+                font-size: clamp(1em, 7vw, var(--base-font-size));
+                font-family: fonts.get(secondary);
+                margin: 0 0 0.75em;
+
+                display: flex;
+                flex-direction: column;
+
+                > b {
+                    font-size: fonts.cascade-em(75);
+                    text-transform: uppercase;
+                    line-height: .85;
+                }
+            }
+            
+            #{$select} {
+                &__group {
+                    gap: 2.5em;
+                }
+            }
+    
+            @content;
+        }
+    }
+}
+
+@mixin text-video {
+    #{$select} {
+        &--text-video {
+
+            p {
+                font-weight: 500;
+                b {
+                    color: colors.get(primary);
+                    font-weight: bold;
+                }
+            }
+
+            #{$select} {
+                &__title {
+                    font-size: fonts.em(34);
+                    font-weight: bold;
+                    line-height: 1.2;
+                    color: colors.get(primary);
+                }
+                &__group {
+                    justify-content: space-around;
+                    // align-items: center;
+                    @include group.gutter(1rem);
+                }
+
+                &__text {
+                    flex-basis: 33em;
+                    text-align: left;
+                }
+
+                &__video {
+                    flex-basis: queries.em(426);
+                    iframe {
+                        border: 1px solid black;
+                    }
+
+                    @include space.between-flow-elements($gap: 1rem) {};
+                }
+
+                &__footer {
+                    margin-top: 1.5em;
+                }
+
+                @media all and (max-width: queries.set(970)) {
+                    &__text {
+                        flex-basis: queries.em(480);
+                    }
+
+                    &__footer {
+                        flex-basis: 100%;
+                    }
+                }
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin communities {
+    #{$select} {
+        &--communities {
+            @include background.color-map(
+                colors.get(accent-dark),
+                colors.get(base-light)
+            );
+
+            #{$select} {
+                &__title {
+                    color: currentColor;
+                    font-size: fonts.em(27);
+                    line-height: 1.25;
+                }
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin customer-reviews {
+    #{$select} {
+        &--customer-reviews {
+            #{$select} {
+                &__picture {
+                    max-width: queries.em(137);
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                &__text {
+                    font-size: fonts.em(18);
+                }
+
+                &__title {
+                    [data-content-title-icon]::before {
+                        content: attr(data-content-title-icon);
+                    }
+                }
+
+                @media all and (max-width: queries.get(document-mobile-portrait)) {
+                    &__title {
+                        max-width: 7em;
+                        margin: auto;
+
+                        [data-content-title-icon]::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            @content;
+        }
+    }
+}

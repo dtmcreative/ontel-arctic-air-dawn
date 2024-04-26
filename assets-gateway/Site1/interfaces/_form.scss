@@ -1,0 +1,70 @@
+// utils
+@use "Shared/scss/templates/base/utils/scope";
+@use "Shared/scss/templates/base/utils/svg-icon";
+
+// components
+@use "./../components/validation-summary-errors" as vse;
+@use "./../components/validate";
+@use "./../components/order-table";
+@use "./../components/offer-details";
+@use "./../components/form";
+@use "./../components/payment";
+@use "./../components/status-screen";
+
+// layouts
+@use "./../layouts/order";
+@use "./../layouts/modal-dialog";
+@use "./../layouts/express-checkout";
+@use "./../layouts/checkout";
+@use "./../layouts/fieldset";
+@use "./../layouts/options";
+
+@mixin order-form {
+    // utils
+    @include scope.for-template {
+        @include order-table.base;
+    }
+
+    @include svg-icon.base;
+    @include svg-icon.combobox;
+
+    .eflex-checkmark__svg {
+        display: none;
+    }
+
+    // components
+    @include validate.base;
+    @include vse.base;
+
+    @include form.base;
+    @include form.field-icon;
+    @include form.field-label;
+    @include form.select;
+    @include form.checkbox;
+    @include form.radio;
+    @include form.inline-combobox-label;
+    @include form.cvv;
+
+    @include payment.form;
+
+    @include offer-details.base;
+    @include status-screen.initialize;
+
+    // layouts
+    @include order.base;
+    @include order.responsive;
+    @include modal-dialog.base;
+    @include options.base;
+
+    @include checkout.base;
+    @include fieldset.base;
+    @include fieldset.frame;
+
+    @include scope.for-mobile {
+        @include order.responsive;
+    }
+
+    @include scope.for-template {
+        @include express-checkout.base;
+    }
+}

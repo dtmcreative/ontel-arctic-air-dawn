@@ -1,0 +1,266 @@
+$select: ".main-offer" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+// abstracts
+@use "Shared/scss/templates/base/abstracts/group";
+@use "Shared/scss/templates/base/abstracts/space";
+@use "Shared/scss/templates/base/abstracts/background";
+@use "./../abstracts/text";
+
+@mixin base {
+	#{$select} {
+		text-align: center;
+		overflow: hidden;
+		font-family: fonts.get(primary);
+		color: colors.get(primary);
+
+		img {
+			margin: 0 auto;
+		}
+
+		&__group {
+			@include group.contain;
+			align-items: center;
+			overflow: visible;
+		}
+
+        &__offer-group {
+            @include group.contain-flex($gap: 0.5rem) {};
+
+            padding-block: 1em;
+        }
+
+		&__header {
+			flex-basis: 13em;
+			color: colors.get(base);
+		}
+
+		&__title {
+			@include fonts.base-em(12);
+			line-height: 1;
+			font-family: fonts.get(secondary);
+			margin: 0;
+
+			position: relative;
+
+			> b {
+				font-size: fonts.cascade-em(84);
+				font-weight: 900;
+				color: #3c434e;
+				text-transform: uppercase;
+                line-height: .8;
+			}
+
+			> sup {
+				font-size: inherit;
+				bottom: 3.5em;
+			}
+		}
+
+		&__offer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			flex: 0 1 42.5em;
+		}
+
+		&__price-group {
+            flex-basis: 29em;
+
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			align-items: center;
+			margin: auto;
+			overflow: visible;
+			position: relative;
+			z-index: 3;
+			> * {
+				margin: 0 0.5em;
+			}
+		}
+
+		&__free-shipping-icon {
+			flex-basis: queries.em(127);
+			max-width: queries.em(127);
+		}
+
+		&__price {
+			flex: 0 1 10.5em;
+		}
+
+		&__mbg {
+			flex: 0 1 6.8em;
+		}
+
+		&__order {
+			flex: 0 1 100%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			> * {
+				display: block;
+			}
+		}
+
+		&__payment {
+			flex-basis: 100%;
+			font-size: 0.5em;
+			margin-top: 1em;
+
+            display: none;
+		}
+
+		&__button {
+			width: auto;
+			flex: 0 1 8.5em;
+		}
+
+		&__payment {
+			width: auto;
+			flex: 0 1 21em;
+		}
+
+		&__product {
+			margin: 1em auto 0;
+			padding-bottom: 1em;
+			position: relative;
+			overflow: visible;
+
+			img {
+				margin: 0 auto;
+			}
+			&-bg {
+				position: absolute;
+				left: -110px;
+				bottom: 0;
+				margin: auto;
+				z-index: -1;
+				min-width: 749px;
+			}
+			&-shot {
+				position: relative;
+				z-index: 2;
+			}
+		}
+
+		&__content {
+			flex: 0 1 queries.em(306);
+			iframe {
+				border: 1px solid black;
+			}
+		}
+
+		&__in {
+			padding-block: 0;
+		}
+
+		@media all and (max-width: queries.set(1040)) {
+			&__content {
+				flex-basis: 100%;
+
+				display: flex;
+				flex-direction: column-reverse;
+
+				margin-top: 0;
+			}
+
+            &__price {
+                --offer-font-size: 3em;
+            }
+		}
+
+		@media all and (max-width: queries.get(document-mobile-portrait)) {
+			&__offer {
+				flex-grow: 1;
+			}
+			&__figure {
+				margin: 0 !important;
+			}
+			&__in {
+				padding-bottom: 1em;
+			}
+		}
+
+		@media all and (max-width: queries.get(document-mobile-portrait)) {
+			font-size: 3vw;
+		}
+
+        @media all and (max-width: #{queries.section-container($length: 730)}) {
+            &__header {
+                flex-basis: 100%;
+            }
+        }
+
+		@content;
+	}
+}
+
+@mixin offer-product {
+	#{$select} {
+		&--offer-product {
+			#{$select} {
+				&__group {
+					align-items: flex-end;
+				}
+
+				&__offer {
+					flex-basis: 20em;
+				}
+
+				&__product {
+					margin-left: -1em;
+				}
+			}
+
+			@content;
+		}
+	}
+}
+
+@mixin benefits {
+	#{$select} {
+		&--benefits {
+			@media all and (max-width: queries.get(document-mobile-portrait)) {
+				font-size: 1.3em;
+			}
+
+			#{$select} {
+				&__group {
+					$gap: 0.75rem;
+
+					justify-content: space-around;
+
+					@include group.gutter(#{$gap});
+					margin: #{$gap};
+				}
+
+				&__figure {
+                    --group-align-items: center;
+                    @include group.contain-flex($gap: 0.5rem) {};
+
+					font-weight: bold;
+					font-size: fonts.em(22);
+					@media all and (max-width: queries.get(document-mobile-portrait)) {
+						font-size: 5vw;
+						display: block;
+						img {
+							// width: 5em;
+							// height: 5em;
+							margin-inline: auto;
+						}
+					}
+				}
+			}
+
+			@content;
+		}
+	}
+}

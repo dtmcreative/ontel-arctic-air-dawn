@@ -1,0 +1,207 @@
+<div id="order" class="view order section">
+  <div class="view__anchor"></div>
+  <div class="order__header">
+    <div class="order__title">This Offer Is Not Available In Stores</div>
+    <div class="order__callout">
+      Select your offer below or call <a data-view="mobile" href="tel:1-877-446-3146">1-877-446-3146</a
+      ><a data-view="desktop" href="tel:1-877-446-3144">1-877-446-3144</a> to order your <b>{{ shop.name }}</b> Now!
+    </div>
+  </div>
+
+  <div class="view__in section__in">
+    <div class="order__group">
+      <div class="order__form">
+        <form
+          id="offer-selection"
+          action="/checkout/{{ checkout.token }}"
+          method="post"
+          class="view offer-selection message section"
+        >
+          <div class="checkout">
+            <div class="checkout__group">
+              <div class="checkout__take-all checkout__action-text">
+                <div class="form"><span class="form__error">*</span>Indicates required field</div>
+              </div>
+              <div class="checkout__take-all">
+                <fieldset class="fieldset fieldset--frame element-controller" id="SelectOffer">
+                  <div class="fieldset__group fieldset__container">
+                    <h2 class="fieldset__take-all fieldset__title">Select Your Offer</h2>
+                    <div class="fieldset__take-all">
+                      <div class="offer-selection">
+                        <div class="offer-selection__offer offer-selection__double-offer">
+                          <div class="fieldset__content">
+                            <div class="form message form--radio">
+                              <div class="form__radio-label">
+                                <input
+                                  type="checkbox"
+                                  id="ActionCheckbox0"
+                                  name="ActionCheckbox0"
+                                  class="element-controller__controller"
+                                  checked="checked"
+                                  aria-labelledby="ActionCheckbox0Label"
+                                  aria-controls="offer-text-double offer-label-double offer-picture-double"
+                                  aria-checked="true"
+                                >
+                                <label for="ActionCheckbox0" class="form__label">
+                                  <span class="form__radio"></span>
+                                  <b id="ActionCheckbox0Label"
+                                    >Yes! I'd like to DOUBLE my offer for just an additional $19.99 fee!</b
+                                  >
+                                </label>
+                              </div>
+                            </div>
+                            {% assign pluralProductName = shop.name %}
+                            <div class="element-controller__group">
+                              <p
+                                id="offer-text-double"
+                                class="element-controller__element"
+                                aria-hidden="false"
+                                data-element-controller-name="ActionCheckbox0"
+                              >
+                                <b>How many {{ shop.name }} DOUBLE OFFERS would you like?</b> (1 DOUBLE OFFER = 2
+                                {{ pluralProductName }})
+                              </p>
+                              <p class="element-controller__element-relative">
+                                <b>How many {{ shop.name }} SINGLE OFFERS would you like?</b> (1 SINGLE OFFER = 1
+                                {{ shop.name }})
+                              </p>
+                            </div>
+                            <div class="offer-selection__controls">
+                              <div class="form form--inline-combobox-label message">
+                                <div class="form__field-label">
+                                  <label for="ActionQuantity0">
+                                    <span class="message__label"> <span class="form__error">* </span>Qty </span>
+                                  </label>
+                                  <div class="form form--select">
+                                    <div class="form__contain">
+                                      <select
+                                        name="ActionQuantity0"
+                                        id="ActionQuantity0"
+                                        class="form__field dtm__restyle"
+                                        data-required="true"
+                                      >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                      </select>
+                                      <span class="form__field form__button">
+                                        <svg class="icon" focusable="false" role="presentation">
+                                          <use href="#icon-chevron"/>
+                                        </svg>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <label for="ActionQuantity0" class="element-controller__group">
+                                    <span id="offer-label-double" class="element-controller__element"
+                                      >DOUBLE OFFER(S)</span
+                                    >
+                                    <span class="element-controller__element-relative">SINGLE OFFER(S)</span>
+                                  </label>
+                                  <div class="message__group" role="alert">
+                                    <span class="message__invalid"> Please choose a quantity </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="element-controller__group">
+                              <picture id="offer-picture-double" class="element-controller__element">
+                                <source srcset="{{ 'double.webp' | asset_url }}">
+                                <img
+                                  src="{{ 'double.jpg' | asset_url }}"
+                                  loading="lazy"
+                                  alt="Double offer"
+                                  width="238"
+                                  height="106"
+                                >
+                              </picture>
+                              <picture class="element-controller__element-relative">
+                                <source srcset="{{ 'single.webp' | asset_url }}">
+                                <img
+                                  src="{{ 'single.jpg' | asset_url }}"
+                                  loading="lazy"
+                                  alt="Single offer"
+                                  width="238"
+                                  height="106"
+                                >
+                              </picture>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="checkout__take-some">
+                <div class="checkout__offer-details offer-details">
+                  <p>
+                    <strong>OFFER DETAILS</strong><br>
+                    For a limited time only, we'll send you 1 Pure Chill® 2.0 for just $39.99 plus FREE shipping & handling! Plus, we'll DOUBLE the offer, just pay a separate $19.99 fee for the additional.
+                  </p>
+
+                  <p>
+                    This offer is covered by our 60-Day Money Back Guarantee (less shipping, processing, handling, and fees). Sales tax will be added where applicable. Non-continental U.S. orders please add an additional $29.99 shipping surcharge.
+                  </p>
+
+                  <p>For customer service, please call <a href="tel:1-877-308-4504" title="Give our Pure Chill® 2.0 customer service a call." id="ga-link7">1-877-308-4504</a> or email <a href="mailto:PureChill2.0@rephelpdesk.com" title="Send an email to our Pure Chill® 2.0 customer service." id="ga-link8">PureChill2.0@rephelpdesk.com</a>. To check the status of your order, please <a href="https://arcticairbrand.worldpackusaorderstatus.com" title="Check the status of your order." target="_blank" id="ga-link9">click here</a>.</p>
+                </div>
+
+                <div class="checkout__copy checkout__action-text">
+                  <div class="checkout__action">
+                    <button type="submit" class="dtm-button">
+                      <span>Proceed to Checkout</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="view order__offer-image">
+        <img
+          loading="lazy"
+          class="view__scroll"
+          src="{{ 'form-product.png' | asset_url }}"
+          width="450"
+          height="672"
+          alt=""
+        >
+      </div>
+      <div class="order__footer">
+        <div class="disclaimer">
+			<p>*Based on independent testing resulting in 15.09% smoke removal rate of cigarette smoke constituents (carbon monoxide, tar and nicotine)</p>
+			<p>**Run time may vary based on usage, level of water at start of use and fan speed setting.</p>
+            <b id="patent-text" class="patent-text">U.S. Pat. No. D11852373</b>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Offer Selection",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offer Selection"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

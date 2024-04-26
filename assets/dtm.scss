@@ -1,0 +1,12 @@
+// interfaces
+@use "Site1/interfaces/app";
+@use "Site1/interfaces/page";
+@use "Site1/interfaces/form";
+
+@include app.critical;
+
+@include page.base;
+@include page.index;
+@include page.faq;
+
+@include form.order-form;

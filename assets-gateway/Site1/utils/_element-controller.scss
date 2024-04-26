@@ -1,0 +1,18 @@
+$select: ".element-controller" !default;
+
+// utilss
+@use "Shared/scss/templates/base/utils/element-controller";
+
+@mixin base {
+    @include element-controller.inactive-element {
+        display: none;
+    }
+
+    #{$select} {
+        &__element[aria-hidden="false"] ~ &__element-relative {
+            display: none;
+        }
+        
+        @content;
+    }
+}

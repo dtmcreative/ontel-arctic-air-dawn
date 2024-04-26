@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@forward "Shared/scss/templates/base/config/units";
+
+$list: (
+    base: (
+        Arial,
+        Helvetica,
+        sans-serif
+    ),
+    primary: (
+        montserrat,
+        Helvetica,
+        sans-serif
+    ),
+    secondary: (
+        bebas-neue-pro,
+        Helvetica,
+        sans-serif
+    )
+);
+
+@function get($name) {
+    @return map.get($list, $name);
+}

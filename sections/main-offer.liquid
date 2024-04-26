@@ -1,0 +1,410 @@
+<main aria-label="Main offer" class="view main-offer main-offer--container section">
+  <div id="main" class="view__anchor"></div>
+  <div class="view__in main-offer__in section__in">
+    <div class="main-offer__group">
+      <div class="main-offer__offer">
+        <b class="main-offer__banner banner banner--ribbon">
+            <span>Limited Time Offer!</span>
+        </b>
+        <div class="main-offer__offer-group">
+            <div class="main-offer__header">
+                <h1 class="main-offer__title" id="main-title"><b>Double Offer</b><sup>*</sup></h1>
+                <small>*Just pay a separate $19.99 fee for 2nd unit</small>
+              </div>
+              <div class="main-offer__price-group">
+                <div class="main-offer__price">
+                  <div class="sr">
+                    <div class="sr__text">Now Only $39.99</div>
+                    <div class="offer" aria-hidden="true" role="presentation">
+                      <span class="offer__standfirst">Now Only</span>
+                      <span class="offer__currency">$</span>
+                      <span class="offer__amt">39</span>
+                      <span class="offer__follow">
+                        <span class="offer__cent">99</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <picture class="main-offer__free-shipping-icon">
+                  <source srcset="{{ 'free-shipping-truck.webp' | asset_url }}" type="image/webp">
+                  <img src="{{ 'free-shipping-truck.png' | asset_url }}" alt="Free Shipping" width="127" height="84">
+                </picture>
+                <picture class="main-offer__mbg">
+                  <source srcset="{{ 'mbg.webp' | asset_url }}" type="image/webp">
+                  <img src="{{ 'mbg.png' | asset_url }}" alt="60 Day Money Back Guarantee" width="105" height="105">
+                </picture>
+                <div class="main-offer__order">
+                  <a
+                    href="#order"
+                    title="Order Pure Chill® 2.0 Now!"
+                    class="dtm-button"
+                    >Order Now!</a
+                  >
+                  <div class="main-offer__payment"></div>
+                </div>
+              </div>
+        </div>
+
+        {% comment %}
+          <div class="main-offer__product">
+            <picture class="main-offer__product-shot">
+              <source srcset="{{ 'main-product.webp' | asset_url }}" type="image/webp">
+              <img
+                src="{{ 'main-product.png' | asset_url }}"
+                alt="Pure Chill® 2.0, runs up to 12 hours per fill!*"
+                width="512"
+                height="272"
+              >
+            </picture>
+          </div>
+        {% endcomment %}
+      </div>
+      <div class="main-offer__content">
+        <div id="video" class="contain contain--video">
+          <iframe
+            loading="lazy"
+            src="https://player.vimeo.com/video/701744520?autopause=0"
+            frameborder="0"
+            allow="fullscreen"
+            title="Pure Chill® 2.0 video"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section aria-labelledby="features-benefits-title" class="view content content--picture-text section">
+  <div id="features-benefits" class="view__anchor"></div>
+  <div class="view__in section__in">
+    <div class="content__block">
+      <div class="content__group">
+        <div class="content__picture">
+          <div class="slide slide--fade">
+            <div class="slide__into" tabindex="0" id="features-slider">
+              <picture class="slide__item">
+                <source srcset="{{ 'slide-1.webp' | asset_url }}" type="image/webp">
+                <img
+                  src="{{ 'slide-1.png' | asset_url }}"
+                  alt="Advanced and powerful cooling!"
+                  width="645"
+                  height="359"
+                >
+              </picture>
+              <picture class="slide__item">
+                <source srcset="{{ 'slide-2.webp' | asset_url }}" type="image/webp">
+                <img
+                  src="{{ 'slide-2.png' | asset_url }}"
+                  alt=""
+                  width="645"
+                  height="359"
+                  loading="lazy"
+                >
+              </picture>
+              <picture class="slide__item">
+                <source srcset="{{ 'slide-3.webp' | asset_url }}" type="image/webp">
+                <img
+                  src="{{ 'slide-3.png' | asset_url }}"
+                  alt=""
+                  width="645"
+                  height="359"
+                  loading="lazy"
+                >
+              </picture>
+              <picture class="slide__item">
+                <source srcset="{{ 'slide-4.webp' | asset_url }}" type="image/webp">
+                <img
+                  src="{{ 'slide-4.png' | asset_url }}"
+                  alt=""
+                  width="645"
+                  height="359"
+                  loading="lazy"
+                >
+              </picture>
+            </div>
+            <div class="slide__nav">
+              <button aria-label="Previous" class="slide__prev" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+              <button aria-label="Next" class="slide__next" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-offer main-offer--benefits">
+            <div class="main-offer__group">
+              <figure class="main-offer__figure">
+                <img src="{{ 'icon-snowflake.png' | asset_url }}" alt="" width="63" height="63">
+                <figcaption>Cool</figcaption>
+              </figure>
+              <figure class="main-offer__figure">
+                <img src="{{ 'icon-cloud.png' | asset_url }}" alt="" width="63" height="63">
+                <figcaption>Helps Clean*</figcaption>
+              </figure>
+              <figure class="main-offer__figure">
+                <img src="{{ 'icon-water-drop.png' | asset_url }}" alt="" width="63" height="63">
+                <figcaption>Humidify</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="content__text">
+          <div class="features-benefits">
+            <h2 id="features-benefits-title" class="features-benefits__title">Features &amp; Benefits</h2>
+            <ul class="features-benefits__list">
+              <li>Helps Cool the Air Around You</li>
+              <li>Can Cool Down the Air by Up to 20°F</li>
+              <li>Just Add Water & Turn it On</li>
+              <li>Exclusive Air Cooling Cartridge is Great for Nasty Odors</li>
+              <li>3 Arctic Settings – Low, Medium & High</li>
+              <li>LED Mood Light Cycles Through 6 Colors</li>
+              <li>Lasts up to 10 Hours Per Fill**</li>
+              <li>Lightweight, Portable & Whisper Quiet</li>
+              <li>Cost Efficient – Runs on Just Pennies a Day!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="in-use-title" class="view content content--in-use section">
+  <div id="in-use" class="view__anchor"></div>
+  <div class="view__in section__in">
+    <h2 id="in-use-title" class="content__title">Helps Clean*, Cool and Humidify for Maximum Comfort!</h2>
+    <div class="content__carousel">
+        <div class="slide slide--responsive">
+            <div class="slide__into" tabindex="0" id="use-slider">
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-1.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-1.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Dens</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-2.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-2.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Bedrooms</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-3.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-3.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Kitchens</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-4.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-4.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Offices</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-5.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-5.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Shops & Garages</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-6.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-6.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Even Outside!</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-7.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-7.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Living Rooms</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-8.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-8.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Reading Nooks</figcaption>
+                </figure>
+              </div>
+              <div class="slide__item">
+                <figure>
+                  <picture>
+                    <source srcset="{{ 'use-9.webp' | asset_url }}" type="image/webp">
+                    <img src="{{ 'use-9.png' | asset_url }}" alt="" width="279" height="197">
+                  </picture>
+                  <figcaption>Kid's Room</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="slide__nav">
+              <button aria-label="Previous" class="slide__prev" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+              <button aria-label="Next" class="slide__next" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+    </div>
+    <div class="content__footer">
+    <a
+        href="#order"
+        class="dtm-button"
+        >Click Here to Order Now</a
+    >
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="intro-title" class="view content content--text-video section">
+  <div id="intro" class="view__anchor"></div>
+  <div class="view__in section__in">
+    <div class="section__block">
+      <div class="content__group">
+        <div class="content__text">
+          <h2 id="intro-title" class="content__title <%= titleClass %>">
+            Introducing
+            <b>Pure Chill® 2.0</b>
+          </h2>
+          <p>
+            Introducing <b>Pure Chill® 2.0</b>, the personal space cooler that helps clean* and cool!
+            <b>Pure Chill® 2.0</b> is an evaporative air cooler that allows you to enjoy cool air anywhere. Simply fill
+            the water tank on the top of the unit and turn it on.
+          </p>
+          <p>
+            The Secret is <b>Pure Chill® 2.0</b> uses powerful Hydro-Chill® technology and an evaporative air cooling
+            cartridge to turn unbearable hot air into cool refreshing air, instantly! It's fast, easy, and the most
+            efficient cooling technology available for cooling down both indoor and outdoor spaces!
+          </p>
+          <p>
+            It has a quiet, three-speed fan, adjustable air vents, easy top-fill water reservoir and 6 color light
+            options. Plus, its sleek compact design fits nicely on your desk, nightstand, or kitchen – wherever you need
+            it! It's even convenient for travel! Now you can enjoy cool air whenever you need it.
+          </p>
+          <div class="content__footer">
+            <a
+              href="#order"
+              class="dtm-button"
+              >Click Here to Order Now</a
+            >
+          </div>
+        </div>
+        <div class="content__video">
+          <div id="animation" class="contain contain--video">
+            <iframe
+              loading="lazy"
+              src="https://player.vimeo.com/video/701744593?autopause=0&background=1"
+              frameborder="0"
+              title="Pure Chill® 2.0 animation"
+            ></iframe>
+          </div>
+          <div class="slide slide--fade">
+            <div class="slide__into" tabindex="0" id="features-carousel">
+              <picture class="slide__item">
+                <img src="{{ 'features-1.png' | asset_url }}" alt="" width="426" height="314" loading="lazy">
+              </picture>
+              <picture class="slide__item">
+                <img src="{{ 'features-2.png' | asset_url }}" alt="" width="426" height="314" loading="lazy">
+              </picture>
+            </div>
+            <div class="slide__nav">
+              <button aria-label="Previous" class="slide__prev" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+              <button aria-label="Next" class="slide__next" type="button">
+                <svg class="icon">
+                  <use href="#icon-chevron"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="No need to deal with these problems!" class="view content content--negative section">
+  <div id="negative" class="view__anchor"></div>
+  <div class="view__in section__in">
+    <div class="section__block">
+      <div class="content__group">
+        <figure>
+          <figcaption><b>No More</b> Bulky Air Conditioners</figcaption>
+          <picture>
+            <source srcset="{{ 'nomore-1.webp' | asset_url }}" type="image/webp">
+            <img src="{{ 'nomore-1.png' | asset_url }}" alt="" width="425" height="277" loading="lazy">
+          </picture>
+        </figure>
+        <figure>
+          <figcaption><b>Compact Design</b> Fits Anywhere!</figcaption>
+          <picture>
+            <source srcset="{{ 'nomore-2.webp' | asset_url }}" type="image/webp">
+            <img src="{{ 'nomore-2.png' | asset_url }}" alt="" width="425" height="277" loading="lazy">
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg hidden>
+  <symbol id="icon-chevron" x="0px" y="0px" viewBox="0 0 25.228 14.029">
+      <g transform="translate(1.414 1.414)">
+          <path d="M0,11.2,11.2,0m0,22.4L0,11.2" transform="translate(0 11.2) rotate(-90)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+  </symbol>
+</svg>
+
+<svg hidden>
+  <symbol id="quote-tail" viewBox="0 0 42.383 33.9574"><path d="m0,0s12.1277,27.1915,42.383,33.9574c0,0-14.8085-15.4468-14.9362-33.9574H0Z"/></symbol>
+</svg>
+
+<svg hidden>
+  <symbol id="stars" viewBox="0 0 1053.3766 171.7286"><polygon points="90.283 0 111.596 65.5945 180.5661 65.5945 124.7681 106.1341 146.081 171.7286 90.283 131.1889 34.4851 171.7286 55.798 106.1341 0 65.5945 68.9701 65.5945 90.283 0"/><polygon points="308.4857 0 329.7986 65.5945 398.7687 65.5945 342.9707 106.1341 364.2837 171.7286 308.4857 131.1889 252.6877 171.7286 274.0006 106.1341 218.2026 65.5945 287.1727 65.5945 308.4857 0"/><polygon points="526.6883 0 548.0012 65.5945 616.9713 65.5945 561.1734 106.1341 582.4863 171.7286 526.6883 131.1889 470.8903 171.7286 492.2032 106.1341 436.4053 65.5945 505.3754 65.5945 526.6883 0"/><polygon points="744.8909 0 766.2039 65.5945 835.174 65.5945 779.376 106.1341 800.6889 171.7286 744.8909 131.1889 689.0929 171.7286 710.4059 106.1341 654.6079 65.5945 723.578 65.5945 744.8909 0"/><polygon points="963.0935 0 984.4065 65.5945 1053.3766 65.5945 997.5786 106.1341 1018.8915 171.7286 963.0935 131.1889 907.2956 171.7286 928.6085 106.1341 872.8105 65.5945 941.7806 65.5945 963.0935 0"/></symbol>
+</svg>
+
+{% schema %}
+{
+  "name": "Main Offer",
+  "settings": [],
+  "presets": [{ "name": "Main Offer" }],
+  "disabled_on": { "groups": ["header", "footer"] }
+}
+{% endschema %}
+{% stylesheet %} {% endstylesheet %}
+{% javascript %} {% endjavascript %}

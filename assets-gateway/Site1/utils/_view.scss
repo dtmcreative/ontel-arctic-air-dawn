@@ -1,0 +1,26 @@
+$select: ".view" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+@use "./../config/queries";
+
+// utils
+@use "Shared/scss/templates/base/utils/view" with (
+    $breakpoint: queries.get(navbar)
+);
+
+@mixin base {
+    @include view.base;
+
+    @include view.set-anchor-position(
+        $static-amount: 0px,
+        $dynamic-amount: 0px
+    );
+
+    @include view.zero-anchor-position("[data-viewport]");
+
+    #{$select} {
+        @content;
+    }
+}

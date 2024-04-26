@@ -1,0 +1,90 @@
+// utils
+@use "Shared/scss/templates/base/utils/scope";
+@use "./../utils/contain";
+@use "./../utils/element-controller";
+@use "./../utils/disclosure";
+
+// components
+@use "./../components/button";
+@use "./../components/list";
+@use "./../components/offer";
+@use "./../components/payment";
+@use "./../components/fp-nav";
+@use "./../components/features-benefits";
+@use "./../components/figure-picture-text";
+@use "./../components/banner";
+@use "./../components/bonus-text-product";
+
+@use "./../components/card";
+
+// layouts
+@use "./../layouts/content";
+@use "./../layouts/main-offer";
+@use "./../layouts/accordion";
+@use "./../layouts/slide";
+@use "./../layouts/page";
+@use "./../layouts/shopify-policy";
+
+@mixin base {
+	// components
+	@include scope.for-template {
+		@include button.base;
+		@include button.circular;
+	}
+
+	@include list.base;
+
+	@content;
+}
+
+@mixin index {
+	// utils
+	@include contain.base;
+	@include element-controller.base;
+	@include disclosure.base;
+
+	// components
+	@include offer.base;
+	@include payment.base;
+	@include fp-nav.base;
+	@include features-benefits.base;
+	@include figure-picture-text.base;
+	@include banner.base;
+	@include banner.ribbon;
+	@include bonus-text-product.base;
+
+	// layouts
+	@include slide.base;
+	@include slide.fade;
+	@include slide.responsive;
+	@include main-offer.base;
+	@include main-offer.benefits;
+
+	@include content.picture-text;
+	@include content.in-use;
+	@include content.text-video;
+	@include content.negative;
+
+	@include scope.for-template() {
+		@include page.base;
+		@include shopify-policy.base;
+	}
+
+	.disclaimer {
+		margin: 2em auto;
+        max-width: 68ch;
+		text-align: center;
+	}
+
+	@content;
+}
+
+@mixin faq {
+	// components
+	@include card.base;
+
+	// layouts
+	@include accordion.base;
+
+	@content;
+}

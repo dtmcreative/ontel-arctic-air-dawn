@@ -1,0 +1,10 @@
+@mixin container {
+	max-width: var(--section-container);
+	padding: calc(var(--section-frame) * 2) var(--section-frame);
+	margin-inline: auto;
+	box-sizing: content-box;
+
+	text-align: left;
+
+	@content;
+}

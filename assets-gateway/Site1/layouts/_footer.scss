@@ -1,0 +1,48 @@
+$select: ".footer" !default;
+
+// config
+@use "./../config/colors";
+@use "./../config/fonts";
+
+// abstracts
+@use "Shared/scss/templates/base/abstracts/background";
+@use "Shared/scss/templates/base/abstracts/list";
+
+@mixin base {
+    #{$select} {
+        overflow: hidden;
+
+        text-align: center;
+
+        background: linear-gradient(to right, #1e3799 0%, #1b63c2 50%, #1e3799 100%);
+        color: white;
+        --color-body-text: white;
+
+        nav {
+            @include list.structure($offset: 0);
+
+            @media all and (max-width: 640px) {
+                @include list.convert-to-grid($width: 12em) {
+                    > * {
+                        display: block;
+                        text-align: left;
+                    }
+                }
+            }
+
+            @media all and (min-width: 640px) {
+                @include list.inline;
+            }
+        }
+
+        a {
+            text-align: left;
+
+            &:not(:hover):not(:focus) {
+                text-decoration: none;
+            }
+        }
+
+        @content;
+    }
+}
